@@ -1,0 +1,98 @@
+title: MT2023@UdS, guc2esp Translation
+description: 'Challenge for the machine translation course.
+ If you are not taking the course you can participate anyway'
+admin_names: cristinae,norgrai
+competition_docker_image: 'cristinae16/mt23codalab:cometGPU'
+has_registration: False
+start_date: 2023-07-10 00:00:00+00:00
+end_date: 
+allow_public_submissions: true
+allow_teams: true
+enable_detailed_results: true
+enable_forum: true
+enable_per_submission_metadata: false
+force_submission_to_leaderboard: true
+disallow_leaderboard_modifying: false
+show_datasets_from_yaml: true
+
+html:
+    overview: overview.html
+    evaluation: evaluation.html
+    terms: terms.html
+    data: data.html
+
+image: logo.png
+
+phases:
+    1:
+        phasenumber: 1
+        color: green
+        label: "Development"
+        description: 'Development phase: create MT models, translate the in-domain test set and submit the translation.'
+        max_submissions: 100
+        max_submissions_per_day: 20
+        execution_time_limit: 150000
+        is_scoring_only: True
+        scoring_program: program_dev.zip
+        reference_data: reference_dev.zip
+        public_data: dataset.zip
+        start_date: 2023-07-10 00:00:00+00:00 # YYYY-MM-DD
+
+    2:
+        phasenumber: 2
+        color: purple
+        label: "Evaluation"
+        description: 'Final phase: Evaluation on the general domain test.'
+        max_submissions: 10
+        max_submissions_per_day: 5
+        execution_time_limit: 150000
+        is_scoring_only: True
+        scoring_program: program_test.zip
+        reference_data: reference_test.zip
+        input_data: dataset.zip
+        start_date: 2023-09-11 00:00:00+00:00 # YYYY-MM-DD
+
+    3:
+        phasenumber: 3
+        color: blue
+        label: "Improvements"
+        description: 'Post-evaluation phase: Anyone can submit up tp 2 systems (non-graded)'
+        max_submissions: 2
+        max_submissions_per_day: 2
+        execution_time_limit: 150000
+        is_scoring_only: True
+        scoring_program: program_test.zip
+        reference_data: reference_test.zip
+        input_data: dataset.zip
+        start_date: 2023-09-18 00:00:00+00:00 # YYYY-MM-DD
+
+
+# Leaderboard
+leaderboard:
+  leaderboards:
+    Results: &RESULTS
+        label: Results
+        rank: 1
+
+  columns:
+    BLEU:
+      label: BLEU
+      leaderboard: *RESULTS
+      numeric_format: 2
+      rank: 2
+    TER:
+      label: TER
+      leaderboard: *RESULTS
+      numeric_format: 2
+      sort: asc
+      rank: 3
+    chrF:
+      label: chrF
+      leaderboard: *RESULTS
+      numeric_format: 2
+      rank: 1
+    COMET:
+      label: COMET
+      leaderboard: *RESULTS
+      numeric_format: 4
+      rank: 4
