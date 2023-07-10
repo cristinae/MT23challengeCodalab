@@ -1,7 +1,6 @@
 # MT23challengeCodalab
-Challenge developed for the MT 2023 Summer semester class at UdS
 
-This repository contains all the files needed to create a competition in Codalab as in July 2013. The files need to be zipped and the zip can be uploaded to Codalab. Notice that this repository does not contain the test sets used in the competition, they are included as empty files.
+This repository contains all the files needed to create a competition in Codalab as in July 2023. The files need to be zipped and the zip can be uploaded to Codalab. Notice that this repository does not contain the test sets used in the competition, they are included as empty files.
 
 The competition [MT2023@UdS, guc2esp Translation](https://codalab.lisn.upsaclay.fr/competitions/14480) run from July to September 2023 and it is still open for comparison purposes.
 
